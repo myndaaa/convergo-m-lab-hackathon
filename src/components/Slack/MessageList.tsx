@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import { Bot, User, Clock, AlertTriangle, HelpCircle } from 'lucide-react';
 import { Message } from '../../types';
 import { useAppStore } from '../../store/useAppStore';
