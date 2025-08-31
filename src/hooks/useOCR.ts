@@ -23,7 +23,11 @@ export function useOCR() {
   useEffect(() => {
     const initWorker = async () => {
       try {
-        const tesseractWorker = await Tesseract.createWorker();
+        const tesseractWorker = await Tesseract.createWorker({
+          workerPath: 'https://unpkg.com/tesseract.js@5/dist/worker.min.js',
+          langPath: 'https://tessdata.projectnaptha.com/4.0.0',
+          corePath: 'https://unpkg.com/tesseract.js-core@5/tesseract-core.wasm.js'
+        });
         await tesseractWorker.loadLanguage('eng');
         await tesseractWorker.initialize('eng');
         setWorker(tesseractWorker);
